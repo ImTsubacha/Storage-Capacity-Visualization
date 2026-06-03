@@ -52,7 +52,7 @@ struct TopFolder {
 std::vector<TopFolder> ui_top_folders;
 std::mutex ui_results_mtx; // フォルダごとの結果を安全に更新・読み取るためのロック
 
-// --- 爆速スキャンエンジン（バックグラウンド用） ---
+// --- スキャンエンジン（バックグラウンド用） ---
 void RunScanBackground(std::string target_dir) {
     ui_is_scanning = true;
     ui_total_size = 0;
@@ -426,11 +426,9 @@ int main(int, char**)
 
             ImGui::Dummy(ImVec2(box_width, box_height));
             }
-            // --- ここまで追加  ---
         }
 
         ImGui::End();
-        // --- ここまで ---
 
         // 3. Show another simple window.
         if (show_another_window)
